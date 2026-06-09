@@ -12,7 +12,7 @@ It features an intuitive UI with product listings, filtering, and responsive des
 
 ## Quick Star
 ```
-git clone https://github.com/codingwithabhra/smartphone_app.git
+git clone https://github.com/codingwithabhra/MobiMart.git
 cd <your-repo>
 npm install
 npm run dev # or `npm start` / `yarn dev`
