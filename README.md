@@ -6,7 +6,7 @@ It features an intuitive UI with product listings, filtering, and responsive des
 ---
 
 ## Demo Link
-[Live Demo](https://myshoppingapp-five.vercel.app/)
+[Live Demo](https://mobi-mart-qpx1.vercel.app/)
 
 ---
 
