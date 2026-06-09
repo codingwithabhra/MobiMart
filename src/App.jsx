@@ -15,9 +15,6 @@ function App() {
   );
   console.log(data);
 
-  // if (loading) return <p>Product List is loading ...</p>;
-  // if (error) return <p>Error loading products</p>;
-
   const newArrivedProducts = data?.filter((event) => event.newArrival == true);
   // console.log(newArrivedProducts);
 

@@ -15,6 +15,8 @@ const Profile = () => {
     error,
   } = useFetch("https://orderhistory-model.vercel.app/orderhistory");
 
+  console.log("orders are -- ", orders);
+
   const [showForm, setShowForm] = useState(false);
   const [editId, setEditId] = useState(null);
   const [formData, setFormData] = useState({

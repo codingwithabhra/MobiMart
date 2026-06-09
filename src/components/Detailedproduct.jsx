@@ -32,44 +32,6 @@ const ProductDetails = () => {
     setSelectedStorage("");
   };
 
-  // // for cart management ----------------------------------------------------
-  // const addToCart = async (productId) => {
-  //   if (!selectedColor || !selectedRam || !selectedStorage) {
-  //     toast.dark("Please select color, RAM and storage");
-  //     return;
-  //   }
-  //   setCartItems((prev) => [...prev, findProduct]);
-
-  //   try {
-  //     const response = await fetch("https://cartmodel.vercel.app/cart", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         productId,
-  //         variant: {
-  //           color: selectedColor,
-  //           storage: selectedStorage,
-  //           ram: selectedRam,
-  //           quantity: 1,
-  //         },
-  //       }),
-  //     });
-
-  //     if (!response.ok) {
-  //       throw "Failed to add to cart";
-  //     }
-
-  //     const data = await response.json();
-  //     console.log("Product added to cart", data);
-  //     toast.success("Added to cart ❤️");
-  //   } catch (error) {
-  //     console.log(error);
-  //     toast.error("Oops ! Something went wrong");
-  //   }
-  // };
-
   return (
     <>
       <div className="card mt-5 mb-5" style={{ border: "none" }}>

@@ -6,7 +6,6 @@ import "./slide-navbar.css";
 import { useWishlist } from "./wishlistContext";
 
 const Header = () => {
-
   const navigate = useNavigate();
 
   const { wishlist } = useWishlist();
@@ -52,8 +51,13 @@ const Header = () => {
         style={{ backgroundColor: "#0171be" }}
       >
         <div className="container">
-          <Link className="navbar-brand" to="/">
-            MySmartphoneApp
+          <Link className="navbar-brand d-flex align-items-center" to="/">
+            <img
+              src="/MobiMart.png"
+              alt="MobiMart"
+              className="img-fluid"
+              style={{ height: "40px", width: "auto" }}
+            />
           </Link>
           <button
             className="navbar-toggler"
@@ -62,7 +66,10 @@ const Header = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className={`navbar-collapse slide-navbar ${isOpen ? "open" : ""}`} id="navbarSupportedContent">
+          <div
+            className={`navbar-collapse slide-navbar ${isOpen ? "open" : ""}`}
+            id="navbarSupportedContent"
+          >
             {/* SEARCH */}
             <form
               className="d-flex my-3 my-lg-0 mx-lg-auto"
