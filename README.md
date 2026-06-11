@@ -1,4 +1,4 @@
-# Smart-Phone Shopping App
+# MobiMart
 
 A full stack modern smartphone shopping web app built with a seamless e-commerce experience, allowing users to browse products, view detailed information, and add items to cart effortlessly.
 It features an intuitive UI with product listings, filtering, and responsive design created with React Frontend, Node/Express Backend, Mongodb and Bootstrap.
