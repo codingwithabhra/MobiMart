@@ -10,7 +10,7 @@ It features an intuitive UI with product listings, filtering, and responsive des
 
 ---
 
-## Quick Star
+## Quick Start
 ```
 git clone https://github.com/codingwithabhra/MobiMart.git
 cd <your-repo>
