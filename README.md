@@ -10,6 +10,15 @@ It features an intuitive UI with product listings, filtering, and responsive des
 
 ---
 
+## Log In
+
+> **Guest**
+> Username: 'Megha Bhattacharya',
+> Email: 'megha.bhattacharya77@gmail.com',
+> Password: 'Megha@963'
+
+---
+
 ## Quick Start
 ```
 git clone https://github.com/codingwithabhra/MobiMart.git
