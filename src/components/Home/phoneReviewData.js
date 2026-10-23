@@ -1,0 +1,148 @@
+const phoneReviewData = [
+  {
+    id: 1,
+    newspaperName: "The Times of India",
+    newspaperLogo: "https://res.cloudinary.com/dajxlecl6/image/upload/v1792648654/images_ctdvrj.png",
+    mobileModel: "iPhone 17 Pro",
+    review:
+      "A premium smartphone experience with powerful performance, an advanced camera system, and a refined design for demanding users.",
+    specialRemark: "Premium Pick",
+    rating: 4.8,
+    category: "Flagship Smartphone",
+    isDemo: true,
+  },
+  {
+    id: 2,
+    newspaperName: "The Hindu",
+    newspaperLogo: "https://res.cloudinary.com/dajxlecl6/image/upload/v1792648664/the-hindu-newspaper-logo-png_seeklogo-410159_fmqsmw.png",
+    mobileModel: "Nothing Phone (3)",
+    review:
+      "A distinctive design meets a clean software experience. An interesting choice for users looking for something different in the premium segment.",
+    specialRemark: "Design Meets Innovation",
+    rating: 4.5,
+    category: "Design & Performance",
+    isDemo: true,
+  },
+  {
+    id: 3,
+    newspaperName: "The Indian Express",
+    newspaperLogo: "https://res.cloudinary.com/dajxlecl6/image/upload/v1792648673/images_1_qcn3kz.png",
+    mobileModel: "Vivo X300",
+    review:
+      "A camera-focused smartphone concept with an emphasis on photography, smooth performance, and a polished everyday user experience.",
+    specialRemark: "Camera Enthusiast's Pick",
+    rating: 4.6,
+    category: "Camera Smartphone",
+    isDemo: true,
+  },
+  {
+    id: 4,
+    newspaperName: "Hindustan Times",
+    newspaperLogo: "https://res.cloudinary.com/dajxlecl6/image/upload/v1792648689/hindustan-times-ht-india-english-newspaper-brand-icon-free-png_sq9r46.webp",
+    mobileModel: "Poco F7 Pro",
+    review:
+      "Performance-oriented hardware makes this an appealing option for users who prioritize responsive gaming and demanding everyday tasks.",
+    specialRemark: "Performance Focused",
+    rating: 4.5,
+    category: "Gaming & Performance",
+    isDemo: true,
+  },
+  {
+    id: 5,
+    newspaperName: "Mint",
+    newspaperLogo: "https://res.cloudinary.com/dajxlecl6/image/upload/v1792648699/livemint_logo_jabiaf.jpg",
+    mobileModel: "Google Pixel 10 Pro",
+    review:
+      "A photography-focused flagship experience combining Google's software approach, smart features, and a versatile camera system.",
+    specialRemark: "Smart Photography Pick",
+    rating: 4.7,
+    category: "AI & Photography",
+    isDemo: true,
+  },
+  {
+    id: 6,
+    newspaperName: "The Economic Times",
+    newspaperLogo: "https://res.cloudinary.com/dajxlecl6/image/upload/v1792648714/Economic-Times-Newspaper_lbfqvt.avif",
+    mobileModel: "Nothing Phone (4a)",
+    review:
+      "A promising option for shoppers who value distinctive styling, a clean interface, and a balanced everyday smartphone experience.",
+    specialRemark: "Worth Considering",
+    rating: 4.3,
+    category: "Everyday Smartphone",
+    isDemo: true,
+  },
+  {
+    id: 7,
+    newspaperName: "Deccan Chronicle",
+    newspaperLogo: "https://res.cloudinary.com/dajxlecl6/image/upload/v1792648724/images_4_htpeog.jpg",
+    mobileModel: "Samsung Galaxy S26 Ultra",
+    review:
+      "A premium flagship concept built around an expansive display, versatile cameras, and productivity-oriented smartphone features.",
+    specialRemark: "Premium Powerhouse",
+    rating: 4.8,
+    category: "Ultra-Premium Flagship",
+    isDemo: true,
+  },
+  {
+    id: 8,
+    newspaperName: "The Times of India",
+    newspaperLogo: "https://res.cloudinary.com/dajxlecl6/image/upload/v1792648654/images_ctdvrj.png",
+    mobileModel: "Motorola Edge 60 Pro",
+    review:
+      "A stylish smartphone concept that brings together a vibrant display, a sleek profile, and features suited to everyday multitasking.",
+    specialRemark: "Style Meets Performance",
+    rating: 4.4,
+    category: "All-Rounder",
+    isDemo: true,
+  },
+  {
+    id: 9,
+    newspaperName: "The Indian Express",
+    newspaperLogo: "https://res.cloudinary.com/dajxlecl6/image/upload/v1792648673/images_1_qcn3kz.png",
+    mobileModel: "iPhone 17 Pro",
+    review:
+      "For shoppers seeking a high-end smartphone, its performance-focused hardware and camera capabilities make it a model worth comparing.",
+    specialRemark: "Flagship Contender",
+    rating: 4.7,
+    category: "Premium Smartphone",
+    isDemo: true,
+  },
+  {
+    id: 10,
+    newspaperName: "Mint",
+    newspaperLogo: "https://res.cloudinary.com/dajxlecl6/image/upload/v1792648699/livemint_logo_jabiaf.jpg",
+    mobileModel: "Poco F7 Pro",
+    review:
+      "A performance-first option to consider when comparing smartphones for gaming, multitasking, and demanding applications.",
+    specialRemark: "Gaming Pick",
+    rating: 4.5,
+    category: "Performance Smartphone",
+    isDemo: true,
+  },
+  {
+    id: 11,
+    newspaperName: "Hindustan Times",
+    newspaperLogo: "https://res.cloudinary.com/dajxlecl6/image/upload/v1792648689/hindustan-times-ht-india-english-newspaper-brand-icon-free-png_sq9r46.webp",
+    mobileModel: "Nothing Phone (3)",
+    review:
+      "A distinctive alternative for smartphone buyers who appreciate minimalist software, eye-catching hardware, and a different design identity.",
+    specialRemark: "Style Statement",
+    rating: 4.4,
+    category: "Design-Led Smartphone",
+    isDemo: true,
+  },
+  {
+    id: 12,
+    newspaperName: "The Hindu",
+    newspaperLogo: "https://res.cloudinary.com/dajxlecl6/image/upload/v1792648664/the-hindu-newspaper-logo-png_seeklogo-410159_fmqsmw.png",
+    mobileModel: "Google Pixel 10 Pro",
+    review:
+      "A compelling model to evaluate for computational photography, software features, and a streamlined Android experience.",
+    specialRemark: "Photography Pick",
+    rating: 4.6,
+    category: "Camera & Software",
+    isDemo: true,
+  },
+];
+
+export default phoneReviewData;

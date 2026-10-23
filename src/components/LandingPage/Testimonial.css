@@ -1,0 +1,343 @@
+/* ==============================
+   TESTIMONIAL SECTION
+================================ */
+
+.testimonials-section {
+    padding: 45px 0;
+    background: #faf9ff;
+    overflow: hidden;
+}
+
+.testimonial-heading {
+    max-width: 700px;
+    margin: 0 auto 48px;
+}
+
+.testimonial-eyebrow {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-bottom: 16px;
+    border-radius: 50px;
+    background: #ede9fe;
+    color: #7c3aed;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.testimonial-heading h2 {
+    margin-bottom: 16px;
+    color: #181329;
+    font-size: clamp(26px, 3.5vw, 40px);
+    font-weight: 750;
+    line-height: 1.25;
+}
+
+.testimonial-heading h2 span {
+    color: #7c3aed;
+}
+
+.testimonial-heading p {
+    max-width: 570px;
+    margin: 0 auto;
+    color: #716d7e;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* ==============================
+   SWIPER
+================================ */
+
+.testimonial-swiper {
+    padding: 12px 4px 28px;
+}
+
+.testimonial-swiper .swiper-wrapper {
+    align-items: stretch;
+    transition-timing-function: linear !important;
+}
+
+.testimonial-swiper .swiper-slide {
+    height: auto;
+    display: flex;
+}
+
+/* ==============================
+   TESTIMONIAL CARD
+================================ */
+
+.testimonial-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 320px;
+    padding: 28px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #eee9f8;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(49, 28, 94, 0.045);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-6px);
+    border-color: #d8c9ff;
+    box-shadow: 0 16px 38px rgba(76, 29, 149, 0.10);
+}
+
+/* Decorative quotation mark */
+
+.testimonial-quote {
+    position: absolute;
+    top: 12px;
+    right: 24px;
+    color: #ede5ff;
+    font-family: Georgia, serif;
+    font-size: 100px;
+    font-weight: 700;
+    line-height: 1;
+    pointer-events: none;
+}
+
+/* ==============================
+   STAR RATINGS
+================================ */
+
+.testimonial-rating {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.testimonial-stars {
+    display: flex;
+    gap: 3px;
+    color: #f5a623;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+.star-filled {
+    color: #f5a623;
+}
+
+.star-half {
+    background: linear-gradient(to right,
+            #f5a623 50%,
+            #dedbe7 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.star-empty {
+    color: #dedbe7;
+}
+
+.rating-number {
+    color: #777184;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ==============================
+   REVIEW TEXT
+================================ */
+
+.testimonial-text {
+    flex: 1;
+    margin-bottom: 28px;
+    color: #575267;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* ==============================
+   CUSTOMER DETAILS
+================================ */
+
+.testimonial-customer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid #f0edf6;
+    margin-top: auto;
+}
+
+.testimonial-image {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border: 2px solid #ede9fe;
+    border-radius: 50%;
+}
+
+.testimonial-customer-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.testimonial-customer-info h5 {
+    margin: 0 0 5px;
+    overflow-wrap: anywhere;
+    color: #201a31;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.testimonial-customer-label {
+    color: #8a8498;
+    font-size: 11px;
+}
+
+.testimonial-verified {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ede9fe;
+    color: #7c3aed;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+/* ==============================
+   RESPONSIVE STYLING
+================================ */
+
+@media (max-width: 991px) {
+    .testimonials-section {
+        padding: 65px 0;
+    }
+
+    .testimonial-heading {
+        margin-bottom: 35px;
+    }
+
+    .testimonial-card {
+        min-height: 330px;
+        padding: 22px;
+        border-radius: 17px;
+    }
+
+    .testimonial-text {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+}
+
+@media (max-width: 575px) {
+    .testimonials-section {
+        padding: 50px 0;
+    }
+
+    .testimonial-heading {
+        margin-bottom: 25px;
+    }
+
+    .testimonial-eyebrow {
+        padding: 7px 12px;
+        font-size: 10px;
+        letter-spacing: 1.3px;
+    }
+
+    .testimonial-heading h2 {
+        font-size: 25px;
+    }
+
+    .testimonial-heading p {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .testimonial-swiper {
+        padding: 8px 4px 20px;
+    }
+
+    /* Show one card per slide */
+    .testimonial-swiper .swiper-slide {
+        width: 100%;
+    }
+
+    .testimonial-card {
+        min-height: 300px;
+        padding: 22px 18px;
+        border-radius: 14px;
+    }
+
+    .testimonial-quote {
+        top: 9px;
+        right: 14px;
+        font-size: 65px;
+    }
+
+    .testimonial-rating {
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+
+    .testimonial-stars {
+        gap: 2px;
+        font-size: 15px;
+        letter-spacing: 0;
+    }
+
+    .rating-number {
+        font-size: 11px;
+    }
+
+    .testimonial-text {
+        margin-bottom: 20px;
+        font-size: 13px;
+        line-height: 1.8;
+        overflow-wrap: anywhere;
+    }
+
+    .testimonial-customer {
+        align-items: center;
+        gap: 10px;
+        padding-top: 14px;
+    }
+
+    .testimonial-image {
+        width: 40px;
+        height: 40px;
+    }
+
+    .testimonial-customer-info h5 {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .testimonial-customer-label {
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .testimonial-verified {
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .testimonial-card {
+        transition: none;
+    }
+}

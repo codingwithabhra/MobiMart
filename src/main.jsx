@@ -10,16 +10,22 @@ import ProductListing from "./pages/ProductListing.jsx";
 import Wishlist from "./pages/Wishlist.jsx";
 import Cart from "./pages/Cart.jsx";
 import Checkout from "./pages/Checkout.jsx";
-import { CartProvider } from "./components/cartContext.jsx";
-import { WishlistProvider } from "./components/wishlistContext.jsx";
+import { CartProvider } from "./contexts/cartContext.jsx";
+import { WishlistProvider } from "./contexts/wishlistContext.jsx";
 import Profile from "./pages/Profile.jsx";
 import { ToastContainer } from "react-toastify";
-import { FilterProvider } from "./components/filterContext.jsx";
+import { FilterProvider } from "./contexts/filterContext.jsx";
+import Home from "./pages/Home.jsx";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/home",
+    element: <Home />,
   },
   {
     path: "/products/productdetails/:productId",
@@ -38,7 +44,7 @@ const router = createBrowserRouter([
     element: <Cart />,
   },
   {
-    path: "/products/checkout",
+    path: "/checkout",
     element: <Checkout />,
   },
   {
@@ -49,24 +55,26 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <WishlistProvider>
-      <CartProvider>
-        <FilterProvider>
-          <RouterProvider router={router} />
-          <ToastContainer
-            position="top-center"
-            autoClose={2000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick={false}
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="colored"
-          />
-        </FilterProvider>
-      </CartProvider>
-    </WishlistProvider>
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+      <WishlistProvider>
+        <CartProvider>
+          <FilterProvider>
+            <RouterProvider router={router} />
+            <ToastContainer
+              position="top-center"
+              autoClose={2000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick={false}
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="colored"
+            />
+          </FilterProvider>
+        </CartProvider>
+      </WishlistProvider>
+    </GoogleOAuthProvider>
   </StrictMode>,
 );

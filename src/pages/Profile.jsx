@@ -1,24 +1,24 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Profiledetails from "../components/Profiledetails";
+import Header3 from "../components/Header/Header3";
+import Footer from "../components/Footer/Footer";
+import Profiledetails from "../components/Profile/Profiledetails";
 
 const Profile = () => {
 
   return (
     <div style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
       <header style={{ flexShrink: 0 }}>
-        <Header />
+        <Header3 />
       </header>
 
       <main
         style={{
-          backgroundColor: "#e6f0ff",
+          backgroundColor: "#f4ebff",
           flex: 1,
           overflowY: "auto",
           overflowX: "hidden",
         }}
       >
-        <div className="container py-5">
+        <div className="">
           <Profiledetails />
         </div>
       </main>

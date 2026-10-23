@@ -1,0 +1,16 @@
+
+.mySwiper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.mySwiper .swiper-slide {
+  width: 100%;
+}
+
+.mySwiper .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
