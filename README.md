@@ -6,7 +6,7 @@ It features an intuitive UI with product listings, filtering, and responsive des
 ---
 
 ## Demo Link
-[Live Demo](https://mobi-mart-qpx1.vercel.app/)
+[Live Demo](https://mobi-mart-alpha.vercel.app/)
 
 ---
 
@@ -43,12 +43,17 @@ Watch a walkthrough (5-7 minutes) of all the major features of this app : [watch
 ---
 
 ## Features
+**Landing Page**
+- Sign up, Log in, Google Login button.
+- Brand names slider, and customer reviews.
+- 
 **Home**
 - Newly arrived phone list.
-- Category wise groupings.
+- Brand wise groupings.
 - Search by model name.
-- Cart and wislist access
-- User name and image display
+- Cart and wislist access.
+- User name and image display.
+- Newspaper wise phone model reviews.
 
 **Product Details**
 - Product Images.
@@ -56,7 +61,7 @@ Watch a walkthrough (5-7 minutes) of all the major features of this app : [watch
 - Pruduct full details (name, discount, rating, reviews, prices, features)
 
 **Product Listing**
-- Product List from a particular category.
+- Product List from a particular brand.
 - Filtering option (by ram, storage or price).
 - Clear filter button.
 
