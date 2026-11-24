@@ -28,7 +28,7 @@ const Landingcomponent = () => {
       <div className="discount">
         <div className="dscnt-img">
           <img
-            src="https://res.cloudinary.com/dajxlecl6/image/upload/v1791807409/Unbelievable_Smartphone_Discounts_et3ktk.png"
+            src="https://res.cloudinary.com/dajxlecl6/image/upload/v1795524002/Unbelievable_Smartphone_Discounts_et3ktk_h711n4.png"
             alt="Discount_image"
             className="img-fluid"
           />

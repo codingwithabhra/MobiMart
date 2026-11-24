@@ -1,9 +1,9 @@
-
 import React from "react";
 import { useFilterContext } from "../../contexts/filterContext";
 
 const Sidebar = () => {
-  const { filter, updateFilter, clearFilter } = useFilterContext();
+  const { filter, updateFilter, updateRating, updateSortPrice, clearFilter } =
+    useFilterContext();
 
   const filterGroups = [
     {
@@ -43,6 +43,7 @@ const Sidebar = () => {
         </button>
       </div>
 
+      {/* Existing Filters */}
       {filterGroups.map((group) => (
         <div className="mb-4 pb-3 border-bottom" key={group.key}>
           <h6 className="fw-bold mb-3">{group.title}</h6>
@@ -67,6 +68,82 @@ const Sidebar = () => {
           ))}
         </div>
       ))}
+
+      {/* Rating Slider */}
+      <div className="mb-4 pb-3 border-bottom">
+        <h6 className="fw-bold mb-3">RATING</h6>
+
+        <div className="d-flex justify-content-between align-items-center mb-2">
+          <span className="small text-muted">min</span>
+
+          <span className="fw-semibold small">
+            {filter.rating === 0 ? "max" : `${filter.rating}+ ⭐`}
+          </span>
+        </div>
+
+        <input
+          type="range"
+          className="form-range"
+          min="0"
+          max="5"
+          step="0.5"
+          value={filter.rating}
+          onChange={(e) => updateRating(e.target.value)}
+        />
+
+        <div className="d-flex justify-content-between text-muted small">
+          <span>0</span>
+          <span>5</span>
+        </div>
+      </div>
+
+      {/* Sort By Price */}
+      <div className="mb-4 pb-3 border-bottom">
+        <h6 className="fw-bold mb-3">SORT BY PRICE</h6>
+
+        <div className="form-check mb-2">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="sortPrice"
+            id="lowToHigh"
+            value="lowToHigh"
+            checked={filter.sortPrice === "lowToHigh"}
+            onChange={(e) => updateSortPrice(e.target.value)}
+          />
+
+          <label className="form-check-label small" htmlFor="lowToHigh">
+            Low to High
+          </label>
+        </div>
+
+        <div className="form-check mb-2">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="sortPrice"
+            id="highToLow"
+            value="highToLow"
+            checked={filter.sortPrice === "highToLow"}
+            onChange={(e) => updateSortPrice(e.target.value)}
+          />
+
+          <label className="form-check-label small" htmlFor="highToLow">
+            High to Low
+          </label>
+        </div>
+
+        {/* Reset sorting */}
+        {filter.sortPrice && (
+          <button
+            type="button"
+            className="btn btn-sm btn-link text-danger text-decoration-none p-0 mt-1"
+            onClick={() => updateSortPrice("")}
+          >
+            Clear sorting
+          </button>
+        )}
+      </div>
     </div>
   );
 };

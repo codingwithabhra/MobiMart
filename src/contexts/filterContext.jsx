@@ -4,32 +4,58 @@ const filterContext = createContext();
 export const useFilterContext = () => useContext(filterContext);
 
 export const FilterProvider = ({ children }) => {
+  const [filter, setFilter] = useState({
+    ram: [],
+    storage: [],
+    price: [],
+    rating: 0,
+    sortPrice: "",
+  });
 
-    const [ filter, setFilter ] = useState({
-        ram: [], storage: [], price: []
+  // General handlers for all checkboxes
+  const updateFilter = (type, value) => {
+    setFilter((prev) => {
+      const files = prev[type].includes(value);
+
+      return {
+        ...prev,
+        [type]: files
+          ? prev[type].filter((val) => val !== value)
+          : [...prev[type], value],
+      };
     });
+  };
 
-    // General handlers for all checkboxes
-    const updateFilter = (type, value) => {
-        setFilter((prev)=> {
-            const files = prev[type].includes(value); 
+  // Rating slider handler
+  const updateRating = (value) => {
+    setFilter((prev) => ({
+      ...prev,
+      rating: Number(value),
+    }));
+  };
 
-            return {
-                ...prev,
-                [type]: files ? prev[type].filter((val)=> val !== value) : [...prev[type], value]
-            };
-        });
-    };
+  // Price sorting
+  const updateSortPrice = (value) => {
+    setFilter((prev) => ({
+      ...prev,
+      sortPrice: value,
+    }));
+  };
 
-    const clearFilter = () => {
-        setFilter({
-            ram: [], storage: [], price: []
-        })
-    }
+  const clearFilter = () => {
+    setFilter({
+      ram: [],
+      storage: [],
+      price: [],
+      rating: 0,
+    });
+  };
 
-    return (
-        <filterContext.Provider value={{filter, updateFilter, clearFilter}}>
-            {children}
-        </filterContext.Provider>
-    )
-}
+  return (
+    <filterContext.Provider
+      value={{ filter, updateFilter, updateRating, updateSortPrice, clearFilter }}
+    >
+      {children}
+    </filterContext.Provider>
+  );
+};

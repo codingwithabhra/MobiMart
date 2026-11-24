@@ -17,12 +17,14 @@ const Productlist = () => {
   // Category filter first
 
   const categoryProducts = (products || [])
+    // 1. Filter by brand
     .filter(
       (product) =>
         product.brand?.toLowerCase() === brandName.brandName?.toLowerCase(),
     )
+
+    // 2. Filter matching variants
     .map((product) => {
-      // Find variants matching all selected filters
       const matchingVariants = product.variants.filter((variant) => {
         const ramMatch =
           filter.ram.length === 0 || filter.ram.includes(variant.ram);
@@ -57,12 +59,42 @@ const Productlist = () => {
         return ramMatch && storageMatch && priceMatch;
       });
 
+      // Calculate minimum price among matching variants
+      const minPrice = matchingVariants.length
+        ? Math.min(
+            ...matchingVariants.map((variant) => variant.discountedPrice),
+          )
+        : 0;
+
       return {
         ...product,
         matchingVariants,
+        minPrice,
       };
     })
-    .filter((product) => product.matchingVariants.length > 0);
+
+    // 3. Remove products without matching variants
+    .filter((product) => product.matchingVariants.length > 0)
+
+    // 4. Apply minimum rating filter
+    .filter((product) => product.modelRating >= filter.rating)
+
+    // 5. Sort products
+    .sort((a, b) => {
+      const priceA = a.matchingVariants[0].discountedPrice;
+      const priceB = b.matchingVariants[0].discountedPrice;
+
+      if (filter.sortPrice === "lowToHigh") {
+        return priceA - priceB;
+      }
+
+      if (filter.sortPrice === "highToLow") {
+        return priceB - priceA;
+      }
+
+      // Default sorting: Highest rated products first
+      return b.modelRating - a.modelRating;
+    });
 
   console.log("Product brand is -- ", categoryProducts);
 
@@ -80,7 +112,12 @@ const Productlist = () => {
               <p>No products found.</p>
             ) : (
               categoryProducts?.map((product) => {
-                const displayVariant = product.matchingVariants[0];
+                const displayVariant = product.matchingVariants.reduce(
+                  (min, variant) =>
+                    variant.discountedPrice < min.discountedPrice
+                      ? variant
+                      : min,
+                );
 
                 return (
                   <div key={product._id} className="mb-4">

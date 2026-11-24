@@ -8,6 +8,7 @@ import {
   FaArrowRight,
   FaStar,
 } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Wishlist = () => {
   const { wishlist, Loading, removeFromWishlist } = useWishlist();
@@ -20,14 +21,33 @@ const Wishlist = () => {
 
   const handleMoveToCart = async (item) => {
     if (!item?.product || !item?.variant) {
+      toast.error("Invalid wishlist item");
       return;
     }
 
     const product = item.product;
 
+    // Find the selected product variant
+    const selectedVariant = product.variants?.find(
+      (variant) =>
+        variant.color === item.variant.color &&
+        variant.ram === item.variant.ram &&
+        variant.storage === item.variant.storage,
+    );
+
+    if (!selectedVariant) {
+      toast.error("Selected product variant is unavailable");
+      return;
+    }
+
+    if (selectedVariant.stock <= 0) {
+      toast.error("This product is currently out of stock");
+      return;
+    }
+
+    // Add product to cart
     const success = await addToCart({
       productId: product._id,
-
       variant: {
         color: item.variant.color,
         ram: item.variant.ram,
@@ -35,12 +55,8 @@ const Wishlist = () => {
       },
     });
 
-    /*
-            Remove from wishlist only if the product was
-            successfully added to cart.
-        */
-
-    if (success !== false) {
+    // Remove from wishlist only after successful cart operation
+    if (success) {
       await removeFromWishlist(item._id);
     }
   };

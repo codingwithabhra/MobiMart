@@ -20,6 +20,11 @@ export const CartProvider = ({ children }) => {
 
   const { addToWishlist, refetchWishlist } = useWishlist();
 
+  const cartCount = cartItems.reduce(
+    (total, item) => total + Number(item.quantity || 0),
+    0,
+  );
+
   //for fetching all product data
   useEffect(() => {
     const fetchAllProducts = async () => {
@@ -221,20 +226,19 @@ export const CartProvider = ({ children }) => {
   };
 
   // for adding to cart ----------------------------------------------------
+
   const addToCart = async ({ productId, variant }) => {
     if (!variant?.color || !variant?.ram || !variant?.storage) {
       toast.dark("Please select color, RAM and storage");
-      return;
-    }
-
-    const alreadyExists = isProductAlreadyInCart(productId, variant);
-
-    if (alreadyExists) {
-      toast.dark("This product is already added in cart");
-      return;
+      return false;
     }
 
     const token = localStorage.getItem("token");
+
+    if (!token) {
+      toast.error("Please log in to add products to cart");
+      return false;
+    }
 
     try {
       const response = await axios.post(
@@ -255,18 +259,27 @@ export const CartProvider = ({ children }) => {
         },
       );
 
-      const data = response.data;
-
-      toast.success("Added to cart ❤️");
-
-      // Update cart state using response
+      // Refresh cart with the updated quantity
       await fetchCart();
 
-      console.log("Product added to cart:", data);
-    } catch (error) {
-      console.error(error.response?.data?.message || error.message);
+      if (response.data.action === "quantity_updated") {
+        toast.success("Product is again added to cart");
+      } else {
+        toast.success("Product is added to cart");
+      }
 
-      toast.error(error.response?.data?.message || "Something went wrong");
+      console.log("Cart updated:", response.data);
+
+      return true;
+    } catch (error) {
+      console.error(
+        "Add to cart error:",
+        error.response?.data?.error || error.message,
+      );
+
+      toast.error(error.response?.data?.error || "Something went wrong");
+
+      return false;
     }
   };
 
@@ -308,7 +321,6 @@ export const CartProvider = ({ children }) => {
   }) => {
     await addToWishlist({ productId, title, image, price, variant });
     refetchWishlist();
-    removeFromCart(cartId);
   };
 
   // ADD NEW ADDRESS
@@ -521,6 +533,7 @@ export const CartProvider = ({ children }) => {
     <cartContext.Provider
       value={{
         cartItems,
+        cartCount,
         products,
         loading,
         error,

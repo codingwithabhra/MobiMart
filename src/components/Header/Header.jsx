@@ -17,7 +17,7 @@ const Header = () => {
 
   const { wishlist } = useWishlist();
 
-  const { user, userLoading, cartItems } = useCartContext();
+  const { user, userLoading, cartCount } = useCartContext();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -120,12 +120,12 @@ const Header = () => {
                 >
                   <FaCartShopping size={22} />
 
-                  {cartItems?.length > 0 && (
+                  {cartCount > 0 && (
                     <span
                       className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                       style={{ fontSize: "0.65rem" }}
                     >
-                      {cartItems.length}
+                      {cartCount}
                     </span>
                   )}
                 </Link>
@@ -227,12 +227,12 @@ const Header = () => {
                   style={{ color: "#fff" }}
                 ></i>
 
-                {cartItems?.length > 0 && (
+                {cartCount > 0 && (
                   <span
                     className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                     style={{ fontSize: "0.65rem" }}
                   >
-                    {cartItems.length}
+                    {cartCount}
                   </span>
                 )}
               </Link>
